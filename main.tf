@@ -17,12 +17,3 @@ resource "github_repository" "terraform-github" {
   auto_init   = true
 }
 
-resource "github_branch" "main" {
-  repository = github_repository.terraform-github.terraform-github_branch
-  branch     = "main"
-}
-
-resource "github_branch_default" "default"{
-  repository = github_repository.terraform-github.terraform-github_branch
-  branch     = github_branch.main.branch
-}
